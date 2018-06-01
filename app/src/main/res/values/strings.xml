@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CrossApplication</string>
-    <string name="facebook_app_id"></string>
+    <string name="facebook_app_id">402524810151096</string>
+    <string name="fb_login_protocol_scheme">fb402524810151096</string>
+
+    <string name="server_host">https://cross-server.herokuapp.com/</string>
 </resources>
