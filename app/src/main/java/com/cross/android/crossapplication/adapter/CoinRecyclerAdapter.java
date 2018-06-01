@@ -51,7 +51,6 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
             coin_name_textview = view.findViewById(R.id.coin_name_textview);
             coin_hold_textview = view.findViewById(R.id.coin_hold_textview);
             coin_unit_textview = view.findViewById(R.id.coin_unit_textview);
-            coin_price_textview = view.findViewById(R.id.coin_price_textview);
 
         }
     }
