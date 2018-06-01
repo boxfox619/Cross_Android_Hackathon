@@ -19,52 +19,24 @@
             android:background="@color/colorWhite"
             android:orientation="vertical">
 
-            <View
+            <android.support.design.widget.AppBarLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="55dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:fitsSystemWindows="true"
+                app:elevation="0dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
+                <android.support.v7.widget.Toolbar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="31" />
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-                <ImageView
-                    android:id="@+id/main_drawer_imageview"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:src="@drawable/ic_menu" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="307" />
-
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="18"
-                    android:src="@drawable/ic_menu_right" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="31" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+            </android.support.design.widget.AppBarLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -73,18 +45,15 @@
                 android:lineSpacingExtra="4sp"
                 android:text="Cross-3379"
                 android:textColor="#696969"
-                android:textSize="20sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
 
                 <TextView
@@ -105,18 +74,14 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
             <LinearLayout
                 android:id="@+id/main_linearlayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:visibility="visible">
+                android:visibility="visible"
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:layout_width="16dp"
@@ -150,11 +115,6 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
         </LinearLayout>
         <com.github.aakira.expandablelayout.ExpandableLinearLayout
             android:layout_below="@+id/main_topbox_linearlayout"
@@ -168,23 +128,23 @@
             app:el_expanded="true">
 
             <LinearLayout
-
                 android:layout_width="match_parent"
+                android:weightSum="2"
                 android:layout_height="65dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="106dp"
-                    android:layout_height="22dp"
-                    android:layout_marginBottom="19dp"
-                    android:layout_marginEnd="79dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="24dp">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <ImageView
+                        android:layout_marginEnd="9dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
                         android:src="@drawable/ic_copy" />
 
                     <TextView
@@ -199,16 +159,18 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="106dp"
-                    android:layout_height="22dp"
-                    android:layout_marginBottom="19dp"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="24dp">
+                    android:id="@+id/btn_remittance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center">
 
                     <ImageView
+                        android:layout_marginEnd="9dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="3dp"
                         android:src="@drawable/ic_remittance" />
 
                     <TextView
@@ -216,17 +178,15 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:lineSpacingExtra="2sp"
-                        android:text="Copy wallet"
+                        android:text="Remittance"
                         android:textColor="#696969"
                         android:textSize="15sp" />
 
                 </LinearLayout>
 
-
             </LinearLayout>
 
         </com.github.aakira.expandablelayout.ExpandableLinearLayout>
-
 
 
         <android.support.v7.widget.RecyclerView
@@ -234,7 +194,18 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_below="@+id/main_topbox_expandable"
-            android:layout_marginTop="20dp"/>
+            android:paddingBottom="50dp"/>
+        
+        <android.support.v7.widget.CardView
+            android:id="@+id/btn_create_wallet"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginBottom="13dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+        </android.support.v7.widget.CardView>
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView
