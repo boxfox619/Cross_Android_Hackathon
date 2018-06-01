@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@+id/tv_title"/>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="20dp"
+            android:textColor="#555555"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/tv_desc"/>
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:text="Description"
+        android:textColor="#88555555"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btnLoginFacebook"
@@ -13,7 +41,13 @@
         android:background="#3c66c4"
         android:text="Log in with Facebook"
         android:textAllCaps="false"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btn_fb"
@@ -23,5 +57,4 @@
         android:layout_gravity="center_horizontal"
         android:text="  connect_with_facebook"
         android:visibility="invisible"/>
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
