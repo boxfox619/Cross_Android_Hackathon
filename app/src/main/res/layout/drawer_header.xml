@@ -18,15 +18,17 @@
         android:layout_alignParentBottom="true"
         android:padding="16dp">
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="김성래"
+            android:text=""
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="20dp" />
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="rlatjdfo112@naver.com"
+            android:text=""
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#88FFFFFF"
             android:textSize="15dp" />
