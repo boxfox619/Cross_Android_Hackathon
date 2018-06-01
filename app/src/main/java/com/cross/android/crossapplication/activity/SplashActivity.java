@@ -1,5 +1,6 @@
 package com.cross.android.crossapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -47,5 +48,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onError(FacebookException exception) {
             }
         });
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
     }
+
 }

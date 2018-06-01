@@ -11,17 +11,21 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
             android:name=".activity.SplashActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <data android:scheme="@string/fb_login_protocol_scheme" />
@@ -33,6 +37,7 @@
             android:authorities="com.facebook.app.FacebookContentProvider495608067455933"
             android:exported="true" />
 
+        <activity android:name=".activity.RemittanceActivity"></activity>
     </application>
 
 </manifest>
