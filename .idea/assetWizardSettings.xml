@@ -79,8 +79,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_more_vert_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\y1093" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_link" />
+                            <entry key="sourceFile" value="C:\Users\y1093\Downloads\link.svg" />
                           </map>
                         </option>
                       </PersistentState>
