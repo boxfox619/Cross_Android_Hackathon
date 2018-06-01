@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="송금">
+        <menu>
+            <item
+                android:id="@+id/menu_qrcode"
+                android:icon="@drawable/ic_qrcode"
+                android:title="QR 코드" />
+            <item
+                android:id="@+id/menu_nfc"
+                android:icon="@drawable/ic_nfc"
+                android:title="NFC" />
+        </menu>
+    </item>
+    <item android:title="부가기능">
+        <menu>
+            <item
+                android:id="@+id/menu_sync"
+                android:icon="@drawable/ic_import_export"
+                android:title="외부계좌 연동" />
+            <item
+                android:id="@+id/menu_ico"
+                android:icon="@drawable/ic_nfc"
+                android:title="ICO" />
+        </menu>
+    </item>
+    <item android:title="설정">
+        <menu>
+            <item
+                android:id="@+id/menu_lock"
+                android:icon="@drawable/ic_lock_outline"
+                android:title="보안" />
+            <item
+                android:id="@+id/navigation_item_images"
+                android:icon="@drawable/ic_person"
+                android:title="마이페이지" />
+        </menu>
+    </item>
+</menu>
