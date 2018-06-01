@@ -5,6 +5,9 @@
       <map>
         <entry key="imageWizard">
           <value>
+<<<<<<< HEAD
+            <PersistentState />
+=======
             <PersistentState>
               <option name="children">
                 <map>
@@ -79,8 +82,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_more_vert_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\y1093" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_link" />
+                            <entry key="sourceFile" value="C:\Users\y1093\Downloads\link.svg" />
                           </map>
                         </option>
                       </PersistentState>
@@ -89,6 +93,7 @@
                 </map>
               </option>
             </PersistentState>
+>>>>>>> 557aa3772ed0b26abf3e25887fa86fcb64ef8b93
           </value>
         </entry>
       </map>

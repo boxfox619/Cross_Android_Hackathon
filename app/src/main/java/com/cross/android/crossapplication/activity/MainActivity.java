@@ -13,7 +13,7 @@ import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     LinearLayout main_topbox_linearlayout;
     ExpandableLinearLayout main_topbox_expandable;
