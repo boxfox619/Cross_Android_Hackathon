@@ -39,6 +39,9 @@
 
         <activity android:name=".activity.RemittanceActivity" />
         <activity android:name=".activity.CreateWalletActivity"></activity>
+        <activity android:name=".RemittanceSelectCoinWalletActivity" />
+        <activity android:name=".RemittanceSetCoinCountActivity" />
+        <activity android:name=".RemittanceSelectFriend"></activity>
     </application>
 
 </manifest>
