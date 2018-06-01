@@ -237,7 +237,8 @@
             android:id="@+id/main_coin_recyclerview"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_below="@+id/main_topbox_expandable" />
+            android:layout_below="@+id/main_topbox_expandable"
+            android:layout_marginTop="20dp"/>
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

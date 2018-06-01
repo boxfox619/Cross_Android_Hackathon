@@ -37,7 +37,10 @@
             android:authorities="com.facebook.app.FacebookContentProvider495608067455933"
             android:exported="true" />
 
-        <activity android:name=".activity.RemittanceActivity"></activity>
+        <activity android:name=".activity.RemittanceActivity" />
+        <activity android:name=".RemittanceSelectCoinWalletActivity" />
+        <activity android:name=".RemittanceSetCoinCountActivity" />
+        <activity android:name=".RemittanceSelectFriend"></activity>
     </application>
 
 </manifest>
