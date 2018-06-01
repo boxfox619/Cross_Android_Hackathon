@@ -2,9 +2,11 @@ package com.cross.android.crossapplication.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
@@ -14,8 +16,8 @@ import java.util.ArrayList;
 
 public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapter.ViewHolder> {
 
-    Context context;
     ArrayList<CoinItem> coinItems;
+    Context context;
 
     public CoinRecyclerAdapter(Context context, ArrayList<CoinItem> coinItems) {
         this.context = context;
@@ -33,25 +35,30 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
         holder.coin_name_textview.setText(coinItems.get(position).getCoin_name());
         holder.coin_hold_textview.setText(coinItems.get(position).getCoin_hold());
         holder.coin_unit_textview.setText(coinItems.get(position).getCoin_unit());
-        holder.coin_price_textview.setText(coinItems.get(position).getCoin_price());
-
+        holder.coin_item_linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DEBUG","눌렀음");
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return coinItems.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView coin_name_textview, coin_hold_textview, coin_unit_textview, coin_price_textview;
+        TextView coin_name_textview, coin_hold_textview, coin_unit_textview;
+        LinearLayout coin_item_linearlayout;
 
         public ViewHolder(View view) {
             super(view);
             coin_name_textview = view.findViewById(R.id.coin_name_textview);
             coin_hold_textview = view.findViewById(R.id.coin_hold_textview);
             coin_unit_textview = view.findViewById(R.id.coin_unit_textview);
-
+            coin_item_linearlayout = view.findViewById(R.id.coin_item_linearlayout);
         }
     }
 

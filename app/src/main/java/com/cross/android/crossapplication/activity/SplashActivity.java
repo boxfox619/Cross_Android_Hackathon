@@ -49,5 +49,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onError(FacebookException exception) {
             }
         });
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
     }
+
 }
