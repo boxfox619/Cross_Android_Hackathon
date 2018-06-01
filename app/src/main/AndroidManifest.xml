@@ -38,10 +38,11 @@
             android:exported="true" />
 
         <activity android:name=".activity.RemittanceActivity" />
-        <activity android:name=".activity.CreateWalletActivity"></activity>
+        <activity android:name=".activity.CreateWalletActivity" />
         <activity android:name=".RemittanceSelectCoinWalletActivity" />
         <activity android:name=".RemittanceSetCoinCountActivity" />
-        <activity android:name=".RemittanceSelectFriend"></activity>
+        <activity android:name=".RemittanceSelectFriend" />
+        <activity android:name=".RemittanceInputCrossAccountActivity"></activity>
     </application>
 
 </manifest>
