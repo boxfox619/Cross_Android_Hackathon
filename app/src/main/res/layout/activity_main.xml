@@ -3,20 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_main_bg"
     android:clipToPadding="false"
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <net.cachapa.expandablelayout.ExpandableLayout
 
+        android:id="@+id/main_topbox_linearlayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:el_duration="1000"
+        app:el_expanded="true"
+        app:el_parallax="0.5"
         android:layout_weight="21"
         android:background="@drawable/main_linearlayout_bg"
         android:elevation="2dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -34,6 +43,7 @@
                 android:layout_weight="31" />
 
             <ImageView
+                android:src="@drawable/ic_menu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="18" />
@@ -83,7 +93,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="6sp"
-
                 android:textColor="#b144fe"
                 android:textSize="28sp"
                 tools:text="103,260,000" />
@@ -96,14 +105,17 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/main_linearlayout1"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
-
-                android:layout_width="wrap_content"
+                android:layout_width="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_trending_up"
                 android:layout_height="match_parent" />
 
             <TextView
@@ -136,8 +148,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </net.cachapa.expandablelayout.ExpandableLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
