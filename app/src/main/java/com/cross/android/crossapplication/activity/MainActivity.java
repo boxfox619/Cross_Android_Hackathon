@@ -1,5 +1,6 @@
 package com.cross.android.crossapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
 import com.cross.android.crossapplication.data.CoinItem;
+import com.cross.android.crossapplication.fragment.Remittance1Fragment;
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
     ArrayList<CoinItem> coinItems = new ArrayList<>();
-
+    LinearLayout main_remittance_linearlayout;
     boolean flag = true;
 
 
@@ -39,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         main_topbox_expandable = findViewById(R.id.main_topbox_expandable);
         main_drawer_layout = findViewById(R.id.main_drawer_layout);
         main_drawer_imageview = findViewById(R.id.main_drawer_imageview);
+        main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
+
+        main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RemittanceActivity.class));
+            }
+        });
 
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, coinItems);
