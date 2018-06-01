@@ -26,7 +26,6 @@ import com.cross.android.crossapplication.util.RetrofitUtil;
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 import io.realm.Realm;
 import retrofit2.Call;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     CoinRecyclerAdapter coinRecyclerAdapter;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    LinearLayout main_remittance_linearlayout;
     boolean flag = true;
 
 
@@ -54,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
         main_topbox_expandable = findViewById(R.id.main_topbox_expandable);
         main_drawer_layout = findViewById(R.id.main_drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        main_remittance_linearlayout = findViewById(R.id.btn_remittance);
+        main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RemittanceActivity.class));
+            }
+        });
 
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this);

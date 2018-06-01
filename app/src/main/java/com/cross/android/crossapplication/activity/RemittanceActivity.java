@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.fragment.Remittance1Fragment;
@@ -13,6 +14,7 @@ public class RemittanceActivity extends AppCompatActivity {
     FrameLayout remittance_framelayout;
     FragmentManager fragmentManager;
     Remittance1Fragment remittance1Fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
