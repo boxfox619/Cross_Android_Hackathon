@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
-import com.cross.android.crossapplication.data.CoinItem;
+import com.cross.android.crossapplication.model.Wallet;
 
 import java.util.ArrayList;
 
@@ -18,26 +18,24 @@ public class Remittance1Fragment extends Fragment {
 
     RecyclerView remittance_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    ArrayList<CoinItem> coinItems = new ArrayList<>();
+    ArrayList<Wallet> wallets = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_remittance1, null);
-        coinRecyclerAdapter = new CoinRecyclerAdapter(getActivity(), coinItems);
+        coinRecyclerAdapter = new CoinRecyclerAdapter(getActivity(), wallets);
         remittance_recyclerview = view.findViewById(R.id.remittance_recyclerview);
 
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+
 
 
         remittance_recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));

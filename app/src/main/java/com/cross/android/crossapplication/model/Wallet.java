@@ -12,6 +12,12 @@ public class Wallet {
     private String balance;
     private double krBalance;
 
+    public Wallet(String name, String symbol, String balance) {
+        this.name = name;
+        this.symbol = symbol;
+        this.balance = balance;
+    }
+
     public String getUid() {
         return uid;
     }

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
-import com.cross.android.crossapplication.data.CoinItem;
+import com.cross.android.crossapplication.model.Wallet;
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView main_drawer_imageview;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    ArrayList<CoinItem> coinItems = new ArrayList<>();
+    ArrayList<Wallet> wallets = new ArrayList<>();
     LinearLayout main_remittance_linearlayout;
     boolean flag = true;
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         main_drawer_imageview = findViewById(R.id.main_drawer_imageview);
         main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
-        coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, coinItems);
+        coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
 
         main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,16 +51,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
-        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
+        wallets.add(new Wallet("Ethereum", "ETH", "32.0938274347"));
 
 
 

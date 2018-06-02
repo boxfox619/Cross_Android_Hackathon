@@ -3,6 +3,7 @@ package com.cross.android.crossapplication.adapter;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.FragmentManager;
+import android.app.WallpaperColors;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
-import com.cross.android.crossapplication.data.CoinItem;
 import com.cross.android.crossapplication.fragment.SetCoinCountFragment;
+import com.cross.android.crossapplication.model.Wallet;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,10 +22,10 @@ import java.util.List;
 
 public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapter.ViewHolder> {
 
-    ArrayList<CoinItem> coinItems;
+    ArrayList<Wallet> coinItems;
     Context context;
 
-    public CoinRecyclerAdapter(Context context, ArrayList<CoinItem> coinItems) {
+    public CoinRecyclerAdapter(Context context, ArrayList<Wallet> coinItems) {
         this.context = context;
         this.coinItems = coinItems;
     }
@@ -37,9 +38,9 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.coin_name_textview.setText(coinItems.get(position).getCoin_name());
-        holder.coin_hold_textview.setText(coinItems.get(position).getCoin_hold());
-        holder.coin_unit_textview.setText(coinItems.get(position).getCoin_unit());
+        holder.coin_name_textview.setText(coinItems.get(position).getName());
+        holder.coin_hold_textview.setText(coinItems.get(position).getBalance());
+        holder.coin_unit_textview.setText(coinItems.get(position).getSymbol());
         holder.coin_item_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
