@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="-3sp"
-        android:text="Please select wallet for withdraw"
+        android:text="출금할 지갑을 선택해 주세요"
         android:textColor="#696969"
         android:textSize="20sp" />
 

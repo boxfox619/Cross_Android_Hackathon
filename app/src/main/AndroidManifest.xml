@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="크로스"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
@@ -37,6 +37,7 @@
             android:authorities="com.facebook.app.FacebookContentProvider495608067455933"
             android:exported="true" />
 
+        <activity android:name=".activity.CreateWalletActivity"/>
         <activity android:name=".activity.RemittanceActivity" />
         <activity android:name=".RemittanceSelectFriend" />
         <activity android:name=".activity.LogActivity"></activity>

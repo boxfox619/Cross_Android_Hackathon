@@ -1,6 +1,9 @@
 package com.cross.android.crossapplication.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -12,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout main_drawer_layout;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    LinearLayout main_remittance_linearlayout;
+    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
     NavigationView navigationView;
     Toolbar toolbar;
     boolean flag = true;
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         main_drawer_layout = findViewById(R.id.main_drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
+        main_copy_linearlayout = findViewById(R.id.main_copy_linearlayout);
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
         List<Wallet> wallets = new ArrayList<>();
         RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
@@ -69,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, RemittanceActivity.class));
             }
         });
+        main_copy_linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RemittanceActivity.class));
+            }
+        });
         main_coin_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         main_coin_recyclerview.setAdapter(coinRecyclerAdapter);
 
@@ -77,12 +88,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(flag == true){
-                    main_topbox_expandable.expand();
-
                     main_topbox_linearlayout.setBackground(getDrawable(R.color.colorWhite));
                     flag = false;
                 }else{
-                    main_topbox_expandable.collapse();
                     flag = true;
                 }
             }
@@ -123,6 +131,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 findViewById(R.id.btn_create_wallet).performClick();
+            }
+        });
+        registerAnimation(main_remittance_linearlayout);
+        registerAnimation(main_copy_linearlayout);
+    }
+
+    private void registerAnimation(final LinearLayout layout){
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    for (int i = 0; i < layout.getChildCount(); i++) {
+                        View view = layout.getChildAt(i);
+                        if (view instanceof TextView) {
+                            ((TextView) view).setTextColor(Color.parseColor("#FFFFFF"));
+                        } else if (view instanceof ImageView) {
+                            ((ImageView) view).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+                        }
+                    }
+                    layout.setBackground(getDrawable(R.drawable.main_button_pressed_bg));
+                }else if(event.getAction() == MotionEvent.ACTION_UP){
+                    for (int i = 0; i < layout.getChildCount(); i++) {
+                        View view = layout.getChildAt(i);
+                        if (view instanceof TextView) {
+                            ((TextView) view).setTextColor(Color.parseColor("#A283F3"));
+                        } else if (view instanceof ImageView) {
+                            ((ImageView) view).clearColorFilter();
+                        }
+                    }
+                    layout.setBackground(getDrawable(R.drawable.main_button_bg));
+                }
+                return false;
             }
         });
     }
