@@ -66,29 +66,12 @@ public class MainActivity extends AppCompatActivity {
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
 
         main_krbalance_textview.setText(getIntent().getStringExtra("krbalance"));
+
         List<Wallet> wallets = new ArrayList<>();
         RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
         for(Wallet w : walletResult){
             wallets.add(w);
         }
-
-        RetrofitUtil.create(MainActivity.this).create(WalletService.class).getWalletInfo("eth").enqueue(new Callback<Wallet>() {
-            @Override
-            public void onResponse(Call<Wallet> call, Response<Wallet> response) {
-                Log.d("DEBUG", String.valueOf(response.code()));
-                if (response.isSuccessful()) {
-                    Wallet wallet = response.body();
-                    Log.d("DEBUG", wallet.getBalance());
-                } else {
-                    Toast.makeText(getApplicationContext(), "서버 오류1", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Wallet> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "서버 오류", Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);

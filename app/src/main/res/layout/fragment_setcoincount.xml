@@ -65,6 +65,7 @@
                         android:text="ETH  " />
 
                     <EditText
+                        android:id="@+id/setcoincount_amount_edittext"
                         android:layout_width="match_parent"
                         android:layout_marginEnd="16dp"
                         android:layout_height="wrap_content"
@@ -78,18 +79,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/setcoincount_krw_textview"
-                android:textColor="@color/colorBlack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/coin_count_container"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="10dp"
-                android:gravity="end"
-                android:text="KRW 100,094,128.192385"
-                android:textSize="15dp" />
-
 
             <Button
                 android:gravity="center"
@@ -97,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/setcoincount_krw_textview"
+                android:layout_below="@+id/coin_count_container"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="78dp"
                 android:background="@drawable/button_bg"

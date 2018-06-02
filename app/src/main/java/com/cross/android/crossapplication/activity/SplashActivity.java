@@ -34,7 +34,6 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
     private CallbackManager callbackManager = null;
     private View rootView;
     private int krBalance;
-    private String userAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +72,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
                     for (int i = 0; i < list.size(); i++) {
                         krBalance += list.get(i).getKrBalance();
                     }
+
                     Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     realm.where(Wallet.class).findAll().deleteAllFromRealm();
