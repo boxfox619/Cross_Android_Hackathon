@@ -7,8 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="64"
+        android:layout_height="55dp"
         android:background="@color/colorWhite"
         android:elevation="2dp">
 
@@ -26,7 +25,7 @@
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="-3sp"
-            android:text="송금"
+            android:text="송금하기"
             android:textColor="#696969"
             android:textSize="20sp" />
 
