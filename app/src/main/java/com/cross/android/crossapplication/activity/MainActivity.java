@@ -3,7 +3,6 @@ package com.cross.android.crossapplication.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -20,17 +20,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
 import com.cross.android.crossapplication.model.User;
 import com.cross.android.crossapplication.model.Wallet;
+import com.cross.android.crossapplication.service.WalletService;
+import com.cross.android.crossapplication.util.RetrofitUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         main_krbalance_textview = findViewById(R.id.main_krbalance_textview);
         main_address_textview = findViewById(R.id.main_address_textview);
         main_topbox_linearlayout = findViewById(R.id.main_topbox_linearlayout);
@@ -57,16 +64,29 @@ public class MainActivity extends AppCompatActivity {
         main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
         main_copy_linearlayout = findViewById(R.id.main_copy_linearlayout);
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
+
+        main_krbalance_textview.setText(getIntent().getStringExtra("krbalance"));
         List<Wallet> wallets = new ArrayList<>();
         RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
         for(Wallet w : walletResult){
             wallets.add(w);
         }
 
-        main_krbalance_textview.setOnClickListener(new View.OnClickListener() {
+        RetrofitUtil.create(MainActivity.this).create(WalletService.class).getWalletInfo("eth").enqueue(new Callback<Wallet>() {
             @Override
-            public void onClick(View v) {
+            public void onResponse(Call<Wallet> call, Response<Wallet> response) {
+                Log.d("DEBUG", String.valueOf(response.code()));
+                if (response.isSuccessful()) {
+                    Wallet wallet = response.body();
+                    Log.d("DEBUG", wallet.getBalance());
+                } else {
+                    Toast.makeText(getApplicationContext(), "서버 오류1", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<Wallet> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "서버 오류", Toast.LENGTH_SHORT).show();
             }
         });
 

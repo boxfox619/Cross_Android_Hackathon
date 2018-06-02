@@ -34,7 +34,7 @@ public interface WalletService {
     @GET("wallet/:symbol/price/all")
     Call<String> getTotalPrice();
 
-    @GET("wallet/:symbol/lookup")
+    @GET("wallet/{symbol}/lookup")
     Call<Wallet> getWalletInfo(@Path("symbol") String symbol);
 
     @GET("wallet/:symbol/transaction")
