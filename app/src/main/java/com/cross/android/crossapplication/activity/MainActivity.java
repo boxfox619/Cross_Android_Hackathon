@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout main_drawer_layout;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    RelativeLayout main_remittance_linearlayout, main_copy_linearlayout;
+    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
     NavigationView navigationView;
     TextView main_krbalance_textview, main_address_textview;
     Toolbar toolbar;
@@ -71,25 +71,6 @@ public class MainActivity extends AppCompatActivity {
         for(Wallet w : walletResult){
             wallets.add(w);
         }
-
-        RetrofitUtil.create(MainActivity.this).create(WalletService.class).getWalletInfo("eth").enqueue(new Callback<Wallet>() {
-            @Override
-            public void onResponse(Call<Wallet> call, Response<Wallet> response) {
-                Log.d("DEBUG", String.valueOf(response.code()));
-                if (response.isSuccessful()) {
-                    Wallet wallet = response.body();
-                    Log.d("DEBUG", wallet.getBalance());
-                } else {
-                    Toast.makeText(getApplicationContext(), "서버 오류1", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Wallet> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "서버 오류", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
 
@@ -161,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         registerAnimation(main_copy_linearlayout);
     }
 
-    private void registerAnimation(final RelativeLayout layout){
+    private void registerAnimation(final LinearLayout layout){
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

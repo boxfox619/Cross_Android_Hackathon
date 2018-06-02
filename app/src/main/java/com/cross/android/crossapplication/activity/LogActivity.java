@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -44,7 +45,7 @@ public class LogActivity extends AppCompatActivity {
     ArrayList<TransactionStatus> transactionStatuses;
     LogRecyclerAdapter logRecyclerAdapter;
     NavigationView navigationView;
-    RelativeLayout main_remittance_linearlayout, main_copy_linearlayout;
+    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
 
 
     @Override
@@ -123,7 +124,7 @@ public class LogActivity extends AppCompatActivity {
         registerAnimation(main_copy_linearlayout);
     }
 
-    private void registerAnimation(final RelativeLayout layout){
+    private void registerAnimation(final LinearLayout layout){
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
