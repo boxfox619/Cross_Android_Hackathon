@@ -7,13 +7,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
 
 public class CheckReceiverFragment extends Fragment {
 
-    TextView checkreceiver_ok_textview, checkreceiver_cancel_textview;
+    Button checkreceiver_ok_textview, checkreceiver_cancel_textview;
     FragmentManager fragmentManager;
     @Nullable
     @Override
