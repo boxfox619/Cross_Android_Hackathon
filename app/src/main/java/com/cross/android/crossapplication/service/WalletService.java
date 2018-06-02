@@ -19,30 +19,30 @@ public interface WalletService {
     @GET("support/wallet/list")
     Call<List<Coin>> getSupportedCoins();
 
-    @POST("wallet/:symbol/create")
+    @POST("wallet/{symbol}/create")
     Call<WalletFile> createWallet(@Body String symbol, @Body String name, @Body String description, @Body String password, @Body boolean major);
 
     @GET("wallet/list")
     Call<List<Wallet>> getWalletList();
 
-    @GET("wallet/:symbol/balance")
+    @GET("wallet/{symbol}/balance")
     Call<String> getBalance(@Path("symbol") String symbol, @Query("address") String address);
 
-    @GET("wallet/:symbol/price")
+    @GET("wallet/{symbol}/price")
     Call<String> getPrice(@Path("symbol") String symbol, @Query("address") String address);
 
-    @GET("wallet/:symbol/price/all")
+    @GET("wallet/{symbol}/price/all")
     Call<String> getTotalPrice();
 
-    @GET("wallet/:symbol/lookup")
+    @GET("wallet/{symbol}/lookup")
     Call<Wallet> getWalletInfo(@Path("symbol") String symbol, String address);
 
-    @GET("wallet/:symbol/transaction")
+    @GET("wallet/{symbol}/transaction")
     Call<TransactionStatus> getTransactionStatus(@Path("symbol") String symbol, @Query("hash") String hash);
 
-    @GET("wallet/:symbol/transaction/count")
+    @GET("wallet/{symbol}/transaction/count")
     Call<Integer> getTransactionCount(@Path("symbol") String symbol, @Query("address") String address);
 
-    @GET("wallet/:symbol/transaction/list")
+    @GET("wallet/{symbol}/transaction/list")
     Call<List<TransactionStatus>> transactionList(@Path("symbol") String symbol, @Query("address") String address);
 }

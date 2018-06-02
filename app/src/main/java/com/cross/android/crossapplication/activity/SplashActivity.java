@@ -33,7 +33,8 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
     private LoginButton loginButton;
     private CallbackManager callbackManager = null;
     private View rootView;
-
+    private int krBalance;
+    private String userAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +70,15 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
             public void onResponse(Call<List<Wallet>> call, Response<List<Wallet>> response) {
                 if(response.isSuccessful()){
                     List<Wallet> list = response.body();
+                    for (int i = 0; i < list.size(); i++) {
+                        krBalance += list.get(i).getKrBalance();
+                    }
                     Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     realm.where(Wallet.class).findAll().deleteAllFromRealm();
                     realm.copyToRealm(list);
                     realm.commitTransaction();
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class).putExtra("krbalance", String.valueOf(krBalance)));
                     finish();
                 }else{
                     Snackbar.make(rootView, "서버 오류 발생", Snackbar.LENGTH_SHORT).show();
@@ -97,6 +101,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
+                    Log.d("DEBUG", response.body().getName());
                     Realm realm = Realm.getDefaultInstance();
                     realm.beginTransaction();
                     realm.copyToRealm(response.body());
