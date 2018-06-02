@@ -39,7 +39,6 @@
 
         <activity android:name=".activity.RemittanceActivity" />
         <activity android:name=".RemittanceSelectFriend" />
-        <activity android:name=".activity.CreateWalletActivity"/>
         <activity android:name=".activity.LogActivity"></activity>
     </application>
 

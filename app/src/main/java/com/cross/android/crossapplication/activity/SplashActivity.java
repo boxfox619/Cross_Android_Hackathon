@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Realm.init(this);
-        //startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_splash);
@@ -114,6 +114,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
                 t.printStackTrace();
             }
         });
+        startActivity(new Intent(SplashActivity.this, RemittanceActivity.class));
     }
 
     @Override
