@@ -13,6 +13,7 @@
         android:elevation="2dp">
 
         <ImageView
+            android:id="@+id/remittance_close_imageveiw"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"

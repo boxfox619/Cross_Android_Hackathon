@@ -89,7 +89,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
                 t.printStackTrace();
             }
         });
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        startActivity(new Intent(SplashActivity.this, RemittanceActivity.class));
     }
 
     @Override

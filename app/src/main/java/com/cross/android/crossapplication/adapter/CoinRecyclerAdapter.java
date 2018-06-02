@@ -1,8 +1,10 @@
 package com.cross.android.crossapplication.adapter;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,11 @@ import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.data.CoinItem;
+import com.cross.android.crossapplication.fragment.SetCoinCountFragment;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapter.ViewHolder> {
 
@@ -38,7 +43,16 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
         holder.coin_item_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("DEBUG","눌렀음");
+                ActivityManager m = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+                List<ActivityManager.RunningTaskInfo> runningTaskInfoList = m.getRunningTasks(10);
+                Iterator<ActivityManager.RunningTaskInfo> itr = runningTaskInfoList.iterator();
+                ActivityManager.RunningTaskInfo runningTaskInfo  = itr.next();
+                String topActivity = runningTaskInfo.topActivity.getShortClassName();
+                if(topActivity.equals(".activity.RemittanceActivity")){
+                    FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.remittance_framelayout,new SetCoinCountFragment(),"fragment_setcoincount").commit();
+                }
+
             }
         });
     }

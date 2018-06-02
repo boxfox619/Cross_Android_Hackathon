@@ -6,7 +6,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +14,6 @@ import android.widget.LinearLayout;
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
 import com.cross.android.crossapplication.data.CoinItem;
-import com.cross.android.crossapplication.fragment.Remittance1Fragment;
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.ArrayList;
@@ -42,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         main_drawer_layout = findViewById(R.id.main_drawer_layout);
         main_drawer_imageview = findViewById(R.id.main_drawer_imageview);
         main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
+        main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
+        coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, coinItems);
 
         main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,24 +50,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
-        coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, coinItems);
+
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
+        coinItems.add(new CoinItem("Ethereum", "ETH", "32.0938274347"));
 
 
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
-        coinItems.add(new CoinItem("asdf", "asdf", "asdf"));
+
 
         main_coin_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         main_coin_recyclerview.setAdapter(coinRecyclerAdapter);
-        main_coin_recyclerview.bringToFront();
 
         main_drawer_imageview.setOnClickListener(new View.OnClickListener() {
             @Override

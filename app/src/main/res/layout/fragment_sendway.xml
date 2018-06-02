@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    android:layout_gravity="bottom"
     android:background="@drawable/card_upper_bg"
-    tools:context=".RemittanceWayFragment"
     android:paddingTop="30dp">
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="다음으로 송금하기"
-        android:textColor="#555555"
-        android:textSize="20dp"
-        android:paddingHorizontal="30dp"/>
+        android:textSize="20sp"
+        android:textColor="#696969"
+        android:lineSpacingExtra="0sp"
+        android:gravity="center_horizontal"
+        android:text="Remittance with"
+        android:paddingStart="30dp"/>
     <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="9"
         android:layout_gravity="center_vertical">
         <LinearLayout
+            android:id="@+id/remittance_wallet_linearlayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="3"
             android:gravity="center">
             <ImageView
+                android:layout_marginBottom="10dp"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:src="@drawable/ic_wallet"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="지갑"
-                android:textSize="15dp"
-                android:textColor="#555555"/>
+                android:textSize="15sp"
+                android:textColor="#b144fe"
+                android:lineSpacingExtra="3sp"
+                android:text="Wallet"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/remittance_cross_linearlayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="3"
             android:gravity="center">
             <ImageView
+                android:layout_marginBottom="10dp"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:src="@drawable/icon_mono"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Cross"
-                android:textSize="15dp"
-                android:textColor="#555555"/>
+                android:textSize="15sp"
+                android:textColor="#b144fe"
+                android:lineSpacingExtra="5sp"
+                android:gravity="center_horizontal"
+                android:text="Cross"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/remittance_friend_linearlayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="3"
             android:gravity="center">
             <ImageView
+                android:layout_marginBottom="10dp"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:src="@drawable/ic_person"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="친구"
-                android:textSize="15dp"
-                android:textColor="#555555"/>
+                android:textSize="15sp"
+                android:textColor="#b144fe"
+                android:lineSpacingExtra="3sp"
+                android:text="Friends"/>
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

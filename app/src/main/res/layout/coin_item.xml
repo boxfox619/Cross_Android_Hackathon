@@ -9,6 +9,7 @@
         android:layout_width="380dp"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/coin_item_bg"
         android:elevation="2dp"
         android:orientation="horizontal">
