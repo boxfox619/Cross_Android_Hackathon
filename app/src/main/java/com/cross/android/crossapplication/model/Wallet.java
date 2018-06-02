@@ -1,6 +1,8 @@
 package com.cross.android.crossapplication.model;
 
-public class Wallet {
+import io.realm.RealmObject;
+
+public class Wallet extends RealmObject{
     private String uid;
     private String owner;
     private String ownerName;
@@ -12,10 +14,7 @@ public class Wallet {
     private String balance;
     private double krBalance;
 
-    public Wallet(String name, String symbol, String balance) {
-        this.name = name;
-        this.symbol = symbol;
-        this.balance = balance;
+    public Wallet() {
     }
 
     public String getUid() {

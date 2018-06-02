@@ -22,10 +22,11 @@ import java.util.List;
 
 public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapter.ViewHolder> {
 
-    ArrayList<Wallet> coinItems;
+    List<Wallet> coinItems;
     Context context;
+    private boolean visibleMenu = true;
 
-    public CoinRecyclerAdapter(Context context, ArrayList<Wallet> coinItems) {
+    public CoinRecyclerAdapter(Context context, List<Wallet> coinItems) {
         this.context = context;
         this.coinItems = coinItems;
     }
@@ -53,9 +54,10 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
                     FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.remittance_framelayout,new SetCoinCountFragment(),"fragment_setcoincount").commit();
                 }
-
             }
         });
+        if(!visibleMenu)
+            holder.btn_menu.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -67,6 +69,8 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
 
         TextView coin_name_textview, coin_hold_textview, coin_unit_textview;
         LinearLayout coin_item_linearlayout;
+        View btn_menu;
+
 
         public ViewHolder(View view) {
             super(view);
@@ -74,7 +78,12 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
             coin_hold_textview = view.findViewById(R.id.coin_hold_textview);
             coin_unit_textview = view.findViewById(R.id.coin_unit_textview);
             coin_item_linearlayout = view.findViewById(R.id.coin_item_linearlayout);
+            btn_menu = view.findViewById(R.id.btn_menu);
         }
+    }
+
+    public void setVisibleMenu(boolean visibleMenu){
+        this.visibleMenu = visibleMenu;
     }
 
     public void clear() {
