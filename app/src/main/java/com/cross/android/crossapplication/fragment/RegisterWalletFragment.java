@@ -16,6 +16,7 @@ import com.cross.android.crossapplication.model.WalletFile;
 import com.cross.android.crossapplication.service.WalletService;
 import com.cross.android.crossapplication.util.RetrofitUtil;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +27,7 @@ public class RegisterWalletFragment extends Fragment {
     FragmentManager fragmentManager;
     EditText registerwallet_walletname_edittext, registerwallet_description_edittext, registerwallet_pw_edittext, registerwallet_confirmpw_edittext;
     Bundle bundle = new Bundle();
+    CompleteWalletFragment completeWalletFragment = new CompleteWalletFragment();
 
     @Nullable
     @Override
@@ -45,20 +47,26 @@ public class RegisterWalletFragment extends Fragment {
                     public void onResponse(Call<WalletFile> call, Response<WalletFile> response) {
                         if (response.isSuccessful()) {
                             WalletFile walletFile = response.body();
+                            Realm realm = Realm.getDefaultInstance();
+                            realm.beginTransaction();
+                            realm.copyToRealm(walletFile);
+                            realm.commitTransaction();
                             bundle.putString("address", walletFile.getAddress());
                             bundle.putString("name", walletFile.getName());
+                            completeWalletFragment.setArguments(bundle);
+                            fragmentManager.beginTransaction().replace(R.id.createwallet_framelayout,completeWalletFragment,"completewalletfragment").commit();
                         }else{
-                            Log.d("DEBUG","Fail");
+                            Log.d("DEBUG", String.valueOf(response.code()));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<WalletFile> call, Throwable t) {
-                        Log.d("DEBUG","Fail");
+                        Log.d("DEBUG", t.toString());
                     }
                 });
 
-                fragmentManager.beginTransaction().replace(R.id.createwallet_framelayout,new CompleteWalletFragment(),"completewalletfragment").commit();
+
             }
         });
         return view;

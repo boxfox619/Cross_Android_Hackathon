@@ -2,10 +2,16 @@ package com.cross.android.crossapplication.model;
 
 import com.google.gson.JsonObject;
 
-public class WalletFile {
+import io.realm.RealmObject;
+
+public class WalletFile extends RealmObject {
     private String address;
     private String name;
     private JsonObject wallet;
+
+    public WalletFile(){
+
+    }
 
     public String getAddress() {
         return address;

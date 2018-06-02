@@ -3,7 +3,7 @@
     <string name="facebook_app_id">402524810151096</string>
     <string name="fb_login_protocol_scheme">fb402524810151096</string>
 
-    <string name="server_host">https://cross-server.herokuapp.com/</string>
+    <string name="server_host">http://192.168.40.159:8999/</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
