@@ -3,8 +3,8 @@ package com.cross.android.crossapplication.adapter;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.FragmentManager;
-import android.app.WallpaperColors;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
+import com.cross.android.crossapplication.activity.LogActivity;
 import com.cross.android.crossapplication.fragment.SetCoinCountFragment;
 import com.cross.android.crossapplication.model.Wallet;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -53,6 +53,9 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
                 if(topActivity.equals(".activity.RemittanceActivity")){
                     FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.remittance_framelayout,new SetCoinCountFragment(),"fragment_setcoincount").commit();
+                } else {
+                    Intent intent = new Intent(context, LogActivity.class);
+                    context.startActivity(intent);
                 }
             }
         });

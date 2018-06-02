@@ -2,82 +2,121 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="106dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="30dp"
+    android:elevation="2dp"
     android:background="@drawable/coin_item_bg"
-    android:paddingLeft="20dp"
-    android:paddingVertical="5dp"
     android:id="@+id/log_cell_container">
-    <RelativeLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/log_date_textview"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="30dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2018.06.01"
-            android:textColor="#555555"
-            android:textSize="15dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" Success"
-            android:textColor="#555555"
-            android:textSize="15dp"
-            android:layout_alignParentEnd="true"
-            android:drawableLeft="@drawable/log_status_bg"/>
-    </RelativeLayout>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:lineSpacingExtra="3sp"
+        android:text="2018. 05. 31"
+        android:textColor="#000000"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/log_email_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/log_date_textview"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="3sp"
+        android:text="boxfoxsg619@gmail.com"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/log_hash_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/log_email_textview"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="3sp"
+        android:text="0xasd1231fdva1231vas"
+        android:textColor="#80000000"
+        android:textSize="13sp" />
+
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="10dp"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="20dp">
-        <TextView
-            android:id="@+id/user_mail_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="rlatjdfo112@naver.com"
-            android:textColor="#555555"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/address_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0xasd1231fdva1231vas"
-            android:textColor="#88555555"
-            android:textSize="15dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="30dp"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layoutDirection="rtl">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:text="1354"
-            android:textColor="#555555"
-            android:layout_alignParentEnd="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:text=" Confirmed "
-            android:textColor="#555555"
-            android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal">
+
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_link"/>
+            android:id="@+id/log_success_imageview"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_success" />
+
+        <TextView
+            android:id="@+id/log_success_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3sp"
+            android:text="Success"
+            android:textColor="#80000000"
+            android:textSize="13sp" />
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/log_amount_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="48dp"
+        android:lineSpacingExtra="3sp"
+        android:text="+13 ETH"
+        android:textColor="#66ff66"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="69dp"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/ic_link" />
+
+        <TextView
+            android:id="@+id/log_confirmation_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3sp"
+            android:text="Confirmed 113"
+            android:textColor="#555555"
+            android:textSize="13sp" />
+    </LinearLayout>
+
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_more_vert_black_24dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_width="4dp"
+        android:layout_height="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="17dp"
+        android:src="@drawable/ic_menu_black" />
+
 </RelativeLayout>

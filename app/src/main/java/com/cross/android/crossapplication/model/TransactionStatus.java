@@ -10,6 +10,38 @@ public class TransactionStatus {
   private double amount;
   private BigInteger blockNumber;
   private BigInteger confirmation;
+  private String email;
+  private String date;
+
+  public TransactionStatus(String transactionHash, boolean status, double amount, BigInteger blockNumber, BigInteger confirmation, String email, String date) {
+    this.transactionHash = transactionHash;
+    this.status = status;
+    this.amount = amount;
+    this.blockNumber = blockNumber;
+    this.confirmation = confirmation;
+    this.email = email;
+    this.date = date;
+  }
+
+  public boolean isStatus() {
+    return status;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
 
   public String getTransactionHash() {
     return transactionHash;
