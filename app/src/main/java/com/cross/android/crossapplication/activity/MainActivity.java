@@ -72,22 +72,6 @@ public class MainActivity extends AppCompatActivity {
         main_coin_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         main_coin_recyclerview.setAdapter(coinRecyclerAdapter);
 
-
-        main_topbox_linearlayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(flag == true){
-                    main_topbox_expandable.expand();
-
-                    main_topbox_linearlayout.setBackground(getDrawable(R.color.colorWhite));
-                    flag = false;
-                }else{
-                    main_topbox_expandable.collapse();
-                    flag = true;
-                }
-            }
-        });
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
