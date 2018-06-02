@@ -39,8 +39,6 @@ public class CheckReceiverFragment extends Fragment {
         checkreceiver_coinaddress_textview = view.findViewById(R.id.checkreceiver_coinaddress_textview);
         fragmentManager = getFragmentManager();
 
-        Log.d("DEBUG",)getArguments().get("amount");
-
         getArguments().get("symbol");
         getArguments().get("address");
 

@@ -61,7 +61,7 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
                 String topActivity = runningTaskInfo.topActivity.getShortClassName();
                 if(topActivity.equals(".activity.RemittanceActivity")){
                     Bundle bundle = new Bundle();
-                    bundle.putString("symbol", coinItems.get(position).getSymbol());
+                    bundle.putString("symbol", wallet.getSymbol());
                     setCoinCountFragment.setArguments(bundle);
                     FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
                     fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, setCoinCountFragment, "fragment_setcoincount").commit();

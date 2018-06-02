@@ -78,7 +78,7 @@ public class LogActivity extends AppCompatActivity {
 
         log_coin_recyclerview.setLayoutManager(new LinearLayoutManager(LogActivity.this));
         log_coin_recyclerview.setAdapter(logRecyclerAdapter);
-        navigationView = findViewById(R.id.navigation_view);
+        navigationView = findViewById(R.id.log_navigation_view);
 
 
         log_toolbar = findViewById(R.id.log_toolbar);
@@ -92,12 +92,6 @@ public class LogActivity extends AppCompatActivity {
             }
         });
         log_toolbar.inflateMenu(R.menu.share_menu);
-        findViewById(R.id.btn_create_wallet).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LogActivity.this, CreateWalletActivity.class));
-            }
-        });
         initViews();
     }
 
@@ -114,12 +108,6 @@ public class LogActivity extends AppCompatActivity {
         User user = realm.where(User.class).findFirst();
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_name)).setText(user.getName());
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_email)).setText(user.getEmail());
-        findViewById(R.id.iv_create_wallet).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.btn_create_wallet).performClick();
-            }
-        });
         registerAnimation(main_remittance_linearlayout);
         registerAnimation(main_copy_linearlayout);
     }
