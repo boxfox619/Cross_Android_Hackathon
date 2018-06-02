@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     CoinRecyclerAdapter coinRecyclerAdapter;
     LinearLayout main_remittance_linearlayout;
     NavigationView navigationView;
-    Toolbar toolbar;
+    Toolbar main_toolbar;
     boolean flag = true;
 
 
@@ -90,17 +90,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu);
-        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_menu_right));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        main_toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(main_toolbar);
+        main_toolbar.setNavigationIcon(R.drawable.ic_menu);
+        main_toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.ic_menu_right));
+        main_toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 main_drawer_layout.openDrawer(Gravity.START);
             }
         });
-        toolbar.inflateMenu(R.menu.share_menu);
+        main_toolbar.inflateMenu(R.menu.share_menu);
         findViewById(R.id.btn_create_wallet).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
