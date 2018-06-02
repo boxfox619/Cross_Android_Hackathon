@@ -141,8 +141,7 @@
                 android:layout_marginTop="12dp"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="10sp"
-                android:text="Ethereum
-Classic"
+                android:text="EthereumClassic"
                 android:textColor="#696969"
                 android:textSize="20sp" />
 
@@ -168,7 +167,7 @@ Classic"
                 android:layout_marginTop="12dp"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="10sp"
-                android:text="Bitcoin"
+                android:text="Litecoin"
                 android:textColor="#696969"
                 android:textSize="20sp" />
 
@@ -193,7 +192,7 @@ Classic"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/ic_bitcoin" />
+                android:src="@drawable/ic_ripple" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -202,7 +201,7 @@ Classic"
                 android:layout_marginTop="12dp"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="10sp"
-                android:text="Bitcoin"
+                android:text="Ripple"
                 android:textColor="#696969"
                 android:textSize="20sp" />
 
