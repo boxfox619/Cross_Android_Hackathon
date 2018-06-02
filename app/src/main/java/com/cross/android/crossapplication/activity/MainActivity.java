@@ -26,9 +26,11 @@ import com.cross.android.crossapplication.util.RetrofitUtil;
 import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout main_drawer_layout;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    ArrayList<Wallet> wallets = new ArrayList<>();
     LinearLayout main_remittance_linearlayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
+        List<Wallet> wallets = new ArrayList<>();
+        RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
+        for(Wallet w : walletResult){
+            wallets.add(w);
+        }
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
 
         main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     main_topbox_expandable.collapse();
                     flag = true;
                 }
-
             }
         });
 
@@ -116,26 +121,6 @@ public class MainActivity extends AppCompatActivity {
         User user = realm.where(User.class).findFirst();
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_name)).setText(user.getName());
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_email)).setText(user.getEmail());
-        RetrofitUtil.create(this).create(WalletService.class).getWalletList().enqueue(new Callback<List<Wallet>>() {
-            @Override
-            public void onResponse(Call<List<Wallet>> call, Response<List<Wallet>> response) {
-                if(response.isSuccessful()){
-                    List<Wallet> list = response.body();
-                    coinRecyclerAdapter.clear();
-                    for(Wallet w : list){
-                        coinRecyclerAdapter.add(w);
-                    }
-                }else{
-                    Snackbar.make(main_drawer_layout, "서버 오류 발생", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Wallet>> call, Throwable t) {
-                Snackbar.make(main_drawer_layout, "서버 오류 발생", Snackbar.LENGTH_SHORT).show();
-                t.printStackTrace();
-            }
-        });
     }
 
 

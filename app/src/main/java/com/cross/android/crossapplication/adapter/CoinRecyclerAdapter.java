@@ -22,10 +22,10 @@ import java.util.List;
 
 public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapter.ViewHolder> {
 
-    ArrayList<Wallet> coinItems;
+    List<Wallet> coinItems;
     Context context;
 
-    public CoinRecyclerAdapter(Context context, ArrayList<Wallet> coinItems) {
+    public CoinRecyclerAdapter(Context context, List<Wallet> coinItems) {
         this.context = context;
         this.coinItems = coinItems;
     }
