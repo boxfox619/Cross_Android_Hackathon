@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".NavigationDrawer">
+    tools:context=".view.NavigationDrawer">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,22 +19,23 @@
             android:src="@drawable/navigation_drawer_background" />
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/email_textView"
+            android:layout_above="@+id/tv_email"
             android:layout_marginLeft="10dp"
-            android:text="김성래"
+            android:text=""
             android:textColor="@color/colorWhite"
             android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/email_textView"
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
-            android:text="raltjdfo112@naver.com"
+            android:text=""
             android:textColor="#88FFFFFF"
             android:textSize="15dp" />
     </RelativeLayout>
