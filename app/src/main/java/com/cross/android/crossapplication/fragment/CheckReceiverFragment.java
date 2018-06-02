@@ -2,6 +2,7 @@ package com.cross.android.crossapplication.fragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import com.cross.android.crossapplication.R;
 
 public class CheckReceiverFragment extends Fragment {
 
-    Button checkreceiver_ok_textview, checkreceiver_cancel_textview;
+    TextView checkreceiver_ok_textview, checkreceiver_cancel_textview;
     FragmentManager fragmentManager;
     @Nullable
     @Override
@@ -33,7 +34,7 @@ public class CheckReceiverFragment extends Fragment {
         checkreceiver_cancel_textview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentManager.beginTransaction().replace(R.id.remittance_framelayout, new SendByCrossFragment(), "sendbycrossfragment").commit();
+                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new SendByCrossFragment(), "sendbycrossfragment").commit();
             }
         });
 

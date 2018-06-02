@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    tools:context=".RemittanceCheckUserActivity">
+    android:background="@color/colorWhite">
     <LinearLayout
+        android:layout_above="@+id/checkreceiver_relativelayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="20dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:lineSpacingExtra="12sp"
+            android:textColor="#717171"
+            android:textSize="18sp"
             android:gravity="center_horizontal"
-            android:text="받는 분이 맞는지 확인해주세요"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
+            tools:text="Is the recipient's information correct?" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,12 +27,14 @@
             android:paddingVertical="30dp"
             android:layout_marginHorizontal="20dp">
             <TextView
+
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="대표 코인"
-                android:textSize="16dp"
-                android:textColor="@color/colorWhite"/>
+                android:lineSpacingExtra="15sp"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                tools:text="Representative coin" />
             <FrameLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -40,6 +42,8 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/coin_logo_container">
                 <ImageView
+                    android:padding="10dp"
+                    android:src="@drawable/ic_etherium"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </FrameLayout>
@@ -127,28 +131,46 @@
             android:layout_marginTop="15dp"
             android:layout_marginHorizontal="40dp"/>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/checkreceiver_relativelayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
         android:orientation="horizontal"
         android:weightSum="2"
         android:layout_alignParentBottom="true">
-        <Button
+
+
+        <TextView
             android:id="@+id/checkreceiver_cancel_textview"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
             android:layout_weight="1"
-            android:text="Cancel"
-            android:textColor="@color/com_facebook_blue"
-            android:background="@color/colorWhite"/>
-        <Button
+            android:gravity="center"
+            android:lineSpacingExtra="4sp"
+            android:textColor="#febd9b"
+            android:textSize="16sp"
+            android:text="취소" />
+
+
+        <TextView
+            android:layout_weight="1"
             android:id="@+id/checkreceiver_ok_textview"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="OK"
-            android:textColor="@color/com_facebook_blue"
-            android:background="@color/colorWhite"/>
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="4sp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="확인" />
     </LinearLayout>
 </RelativeLayout>

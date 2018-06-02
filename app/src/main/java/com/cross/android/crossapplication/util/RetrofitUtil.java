@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUtil {
     public static Retrofit create(Context ctx){
+
         OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
@@ -30,6 +31,7 @@ public class RetrofitUtil {
                 return chain.proceed(newRequest);
             }
         }).build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ctx.getString(R.string.server_host))
                 .client(okHttpClient)
@@ -37,5 +39,6 @@ public class RetrofitUtil {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         return retrofit;
+
     }
 }

@@ -15,6 +15,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        <item name="android:colorControlActivated">@color/colorBlack</item>
+        <item name="android:colorControlActivated">@color/colorBlack</item>
     </style>
 
 

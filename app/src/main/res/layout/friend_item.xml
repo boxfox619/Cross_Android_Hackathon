@@ -2,10 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
     android:layout_height="60dp"
     android:background="@color/colorWhite"
     android:orientation="horizontal">
     <CheckBox
+        android:id="@+id/friend_checkbox"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_gravity="center_vertical"
@@ -16,12 +19,14 @@
         android:orientation="vertical"
         android:gravity="center_vertical">
         <TextView
+            android:id="@+id/friend_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
             android:textColor="#555555"
             android:textSize="20dp"/>
         <TextView
+            android:id="@+id/friend_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="E-mail"

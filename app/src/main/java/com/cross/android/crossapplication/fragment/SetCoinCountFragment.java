@@ -2,6 +2,7 @@ package com.cross.android.crossapplication.fragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -26,7 +28,7 @@ public class SetCoinCountFragment extends Fragment {
     View overlay;
     LinearLayout bottomSheet;
     BottomSheetBehavior mBottomSheetBehavior;
-    ImageButton setcoincount_next_imagebutton;
+   Button setcoincount_next_imagebutton;
 
 
     @Nullable
@@ -37,13 +39,13 @@ public class SetCoinCountFragment extends Fragment {
         remittance_friend_linearlayout = view.findViewById(R.id.remittance_friend_linearlayout);
         remittance_cross_linearlayout = view.findViewById(R.id.remittance_cross_linearlayout);
         remittance_wallet_linearlayout = view.findViewById(R.id.remittance_wallet_linearlayout);
-        fragmentManager = getFragmentManager();
+        fragmentManager = getActivity().getFragmentManager();
 
         remittance_cross_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                fragmentManager.beginTransaction().add(R.id.remittance_framelayout, new SendByCrossFragment(), "sendbycrossfragment").commit();
+                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new SendByCrossFragment(), "sendbycrossfragment").commit();
             }
         });
 
@@ -58,6 +60,7 @@ public class SetCoinCountFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO 친구로 전송하는 방법 연결
+                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new FriendFragment(), "friendfragment").commit();
             }
         });
 

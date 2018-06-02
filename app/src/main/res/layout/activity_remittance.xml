@@ -25,7 +25,7 @@
             android:layout_centerInParent="true"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="-3sp"
-            android:text="송금하기"
+            android:text="Remittance"
             android:textColor="#696969"
             android:textSize="20sp" />
 

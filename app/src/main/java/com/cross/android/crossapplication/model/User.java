@@ -3,10 +3,13 @@ package com.cross.android.crossapplication.model;
 import io.realm.RealmObject;
 
 public class User extends RealmObject{
-    private String email, name, profile, uid;
-    private String token;
-
-    public User(){}
+    String email, name, profile, uid;
+    String token;
+public User(){}
+    public User(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
 
     public String getToken() {
         return token;
