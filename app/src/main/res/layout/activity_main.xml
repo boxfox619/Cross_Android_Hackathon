@@ -130,16 +130,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginHorizontal="20dp"
-<<<<<<< HEAD
                     android:layout_toStartOf="@+id/split_view"
                     android:background="@drawable/main_button_bg"
                     android:paddingStart="10dp"
                     android:paddingVertical="10dp">
-=======
-                    android:paddingVertical="10dp"
-                    android:gravity="center_horizontal"
-                    android:clickable="true">
->>>>>>> a3f9f9d49c5b861a21833cd98c5215f8685f643c
 
                     <ImageView
                         android:layout_width="20dp"
@@ -172,12 +166,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_toEndOf="@+id/split_view"
                     android:paddingVertical="10dp"
-<<<<<<< HEAD
                     android:paddingStart="10dp">
-=======
-                    android:gravity="center_horizontal"
-                    android:clickable="true">
->>>>>>> a3f9f9d49c5b861a21833cd98c5215f8685f643c
 
                     <ImageView
                         android:layout_width="20dp"
