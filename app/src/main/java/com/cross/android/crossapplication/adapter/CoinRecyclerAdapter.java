@@ -45,6 +45,7 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
         Picasso.with(context)
                 .load(context.getString(R.string.server_host)+"/assets/"+coinItems.get(position).getSymbol().toUpperCase()+".png")
                 .into(holder.imageView);
+        final Wallet wallet = coinItems.get(position);
         holder.coin_name_textview.setText(coinItems.get(position).getName());
         holder.coin_hold_textview.setText(coinItems.get(position).getBalance());
         holder.coin_unit_textview.setText(coinItems.get(position).getSymbol());
@@ -61,6 +62,7 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
                     fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout,new SetCoinCountFragment(),"fragment_setcoincount").commit();
                 } else {
                     Intent intent = new Intent(context, LogActivity.class);
+                    intent.putExtra("address",wallet.getCrossAddress());
                     context.startActivity(intent);
                 }
             }

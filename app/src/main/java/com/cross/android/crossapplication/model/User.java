@@ -5,6 +5,7 @@ import io.realm.RealmObject;
 public class User extends RealmObject{
     String email, name, profile, uid;
     String token;
+    private String crossAddress;
 public User(){}
     public User(String email, String name) {
         this.email = email;
@@ -49,5 +50,13 @@ public User(){}
 
     public void setProfile(String profile) {
         this.profile = profile;
+    }
+
+    public String getCrossAddress() {
+        return crossAddress;
+    }
+
+    public void setCrossAddress(String crossAddress) {
+        this.crossAddress = crossAddress;
     }
 }
