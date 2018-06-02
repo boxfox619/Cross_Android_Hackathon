@@ -9,9 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.model.Wallet;
@@ -38,9 +36,6 @@ public class CheckReceiverFragment extends Fragment {
         checkreceiver_name_textview = view.findViewById(R.id.checkreceiver_name_textview);
         checkreceiver_coinaddress_textview = view.findViewById(R.id.checkreceiver_coinaddress_textview);
         fragmentManager = getFragmentManager();
-
-        getArguments().get("symbol");
-        getArguments().get("address");
 
         RetrofitUtil.create(getActivity()).create(WalletService.class).getWalletInfo(getArguments().get("symbol").toString(), getArguments().get("address").toString()).enqueue(new Callback<Wallet>() {
             @Override
