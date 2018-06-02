@@ -64,7 +64,7 @@ public class SplashActivity extends AppCompatActivity implements FacebookCallbac
     }
 
     private void next(){
-        loginButton.setVisibility(View.INVISIBLE);
+        findViewById(R.id.btnLoginFacebook).setVisibility(View.INVISIBLE);
         RetrofitUtil.create(this).create(WalletService.class).getWalletList().enqueue(new Callback<List<Wallet>>() {
             @Override
             public void onResponse(Call<List<Wallet>> call, Response<List<Wallet>> response) {

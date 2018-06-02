@@ -121,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
         User user = realm.where(User.class).findFirst();
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_name)).setText(user.getName());
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_email)).setText(user.getEmail());
+        findViewById(R.id.iv_create_wallet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.btn_create_wallet).performClick();
+            }
+        });
     }
 
 

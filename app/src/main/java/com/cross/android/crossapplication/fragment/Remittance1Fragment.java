@@ -27,6 +27,7 @@ public class Remittance1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_remittance1, null);
         coinRecyclerAdapter = new CoinRecyclerAdapter(getActivity(), wallets);
+        coinRecyclerAdapter.setVisibleMenu(false);
         remittance_recyclerview = view.findViewById(R.id.remittance_recyclerview);
 
         RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
