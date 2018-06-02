@@ -8,13 +8,16 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cross.android.crossapplication.R;
 
+import java.math.BigInteger;
+
 public class CompleteWalletFragment extends Fragment {
 
-    ImageView completewallet_ok_imageview;
+    Button completewallet_ok_imageview;
 
     @Nullable
     @Override

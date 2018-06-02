@@ -7,13 +7,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cross.android.crossapplication.R;
 
 public class RegisterWalletFragment extends Fragment {
 
-    ImageView registerwallet_addwallet_imageview;
+    Button registerwallet_addwallet_imageview;
     FragmentManager fragmentManager;
 
     @Nullable
