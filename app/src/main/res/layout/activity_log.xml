@@ -111,56 +111,71 @@
                 android:textColor="#80696969"
                 android:textSize="10sp" />
 
-            <RelativeLayout
 
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/lower_uper_bg"
-                android:orientation="horizontal">
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <LinearLayout
-                    android:layout_width="110dp"
+                <RelativeLayout
+                    android:id="@+id/main_copy_linearlayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="50dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:lineSpacingExtra="2sp"
-                        android:text="Share wallet
-address"
-                        android:textColor="#696969"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/main_button_bg"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="50dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:paddingVertical="10dp"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_copy_highlight"
+                        android:layout_alignLeft="@+id/copy_wallet_textview"
+                        android:translationX="-25dp"/>
 
                     <TextView
+                        android:id="@+id/copy_wallet_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:lineSpacingExtra="2sp"
-                        android:text="Remittance"
-                        android:textColor="#696969"
+                        android:layout_centerInParent="true"
+                        android:text="주소 복사"
+                        android:textColor="#A283F3"
                         android:textSize="15sp" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
-            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/main_remittance_linearlayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_button_bg"
+                    android:paddingVertical="10dp"
+                    android:layout_marginStart="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_remittance_highlight"
+                        android:layout_alignLeft="@+id/remittance_textview"
+                        android:translationX="-25dp" />
+
+                    <TextView
+                        android:id="@+id/remittance_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="송금"
+                        android:textColor="#A283F3"
+                        android:textSize="15sp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
 
         </LinearLayout>
