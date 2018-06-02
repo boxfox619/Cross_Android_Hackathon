@@ -3,7 +3,6 @@ package com.cross.android.crossapplication.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,19 +19,12 @@ import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.adapter.CoinRecyclerAdapter;
 import com.cross.android.crossapplication.model.User;
 import com.cross.android.crossapplication.model.Wallet;
-import com.cross.android.crossapplication.service.WalletService;
-import com.cross.android.crossapplication.util.RetrofitUtil;
-import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
