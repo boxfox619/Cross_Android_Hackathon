@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.activity.LogActivity;
 import com.cross.android.crossapplication.fragment.SetCoinCountFragment;
 import com.cross.android.crossapplication.model.Wallet;
+import com.squareup.picasso.Picasso;
 
 import java.util.Iterator;
 import java.util.List;
@@ -40,6 +42,9 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        Picasso.with(context)
+                .load(context.getString(R.string.server_host)+"/assets/"+coinItems.get(position).getSymbol().toUpperCase()+".png")
+                .into(holder.imageView);
         holder.coin_name_textview.setText(coinItems.get(position).getName());
         holder.coin_hold_textview.setText(coinItems.get(position).getBalance());
         holder.coin_unit_textview.setText(coinItems.get(position).getSymbol());
@@ -74,10 +79,12 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
         TextView coin_name_textview, coin_hold_textview, coin_unit_textview;
         LinearLayout coin_item_linearlayout;
         View btn_menu;
+        ImageView imageView;
 
 
         public ViewHolder(View view) {
             super(view);
+            imageView = view.findViewById(R.id.coin_profile_imageview);
             coin_name_textview = view.findViewById(R.id.coin_name_textview);
             coin_hold_textview = view.findViewById(R.id.coin_hold_textview);
             coin_unit_textview = view.findViewById(R.id.coin_unit_textview);
