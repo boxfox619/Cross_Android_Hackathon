@@ -77,4 +77,13 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
         }
     }
 
+    public void clear() {
+        this.coinItems.removeAll(coinItems);
+        this.notifyDataSetChanged();
+    }
+
+    public void add(Wallet wallet){
+        this.coinItems.add(wallet);
+    }
+
 }
