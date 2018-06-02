@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         main_coin_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         main_coin_recyclerview.setAdapter(coinRecyclerAdapter);
 
-
         main_topbox_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
