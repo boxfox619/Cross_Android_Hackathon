@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         main_coin_recyclerview = findViewById(R.id.main_coin_recyclerview);
 
         main_krbalance_textview.setText(getIntent().getStringExtra("krbalance"));
+
         List<Wallet> wallets = new ArrayList<>();
         RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
         for(Wallet w : walletResult){

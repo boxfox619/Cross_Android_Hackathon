@@ -8,15 +8,15 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 
 import com.cross.android.crossapplication.R;
 
@@ -24,11 +24,15 @@ public class SetCoinCountFragment extends Fragment {
 
     LinearLayout remittance_wallet_linearlayout, remittance_cross_linearlayout, remittance_friend_linearlayout;
     FragmentManager fragmentManager;
+    EditText setcoincount_amount_edittext;
 
     View overlay;
     LinearLayout bottomSheet;
     BottomSheetBehavior mBottomSheetBehavior;
    Button setcoincount_next_imagebutton;
+
+    SendByCrossFragment sendByCrossFragment = new SendByCrossFragment();
+
 
 
     @Nullable
@@ -39,13 +43,20 @@ public class SetCoinCountFragment extends Fragment {
         remittance_friend_linearlayout = view.findViewById(R.id.remittance_friend_linearlayout);
         remittance_cross_linearlayout = view.findViewById(R.id.remittance_cross_linearlayout);
         remittance_wallet_linearlayout = view.findViewById(R.id.remittance_wallet_linearlayout);
+        setcoincount_amount_edittext = view.findViewById(R.id.setcoincount_amount_edittext);
+        Log.d("DEBUG", getArguments().getString("symbol"));
+
         fragmentManager = getActivity().getFragmentManager();
 
         remittance_cross_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("amount",setcoincount_amount_edittext.getText().toString());
+                bundle.putString("symbol",getArguments().getString("symbol"));
+                sendByCrossFragment.setArguments(bundle);
+                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, sendByCrossFragment, "sendbycrossfragment").commit();
 
-                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new SendByCrossFragment(), "sendbycrossfragment").commit();
             }
         });
 
@@ -59,8 +70,7 @@ public class SetCoinCountFragment extends Fragment {
         remittance_friend_linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO 친구로 전송하는 방법 연결
-                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new FriendFragment(), "friendfragment").commit();
+                fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, new FriendFragment(), "friendfragmentd").commit();
             }
         });
 

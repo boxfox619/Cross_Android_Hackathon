@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
     List<Wallet> coinItems;
     Context context;
     private boolean visibleMenu = true;
+    SetCoinCountFragment setCoinCountFragment = new SetCoinCountFragment();
 
     public CoinRecyclerAdapter(Context context, List<Wallet> coinItems) {
         this.context = context;
@@ -58,8 +60,11 @@ public class CoinRecyclerAdapter extends RecyclerView.Adapter<CoinRecyclerAdapte
                 ActivityManager.RunningTaskInfo runningTaskInfo  = itr.next();
                 String topActivity = runningTaskInfo.topActivity.getShortClassName();
                 if(topActivity.equals(".activity.RemittanceActivity")){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("symbol", coinItems.get(position).getSymbol());
+                    setCoinCountFragment.setArguments(bundle);
                     FragmentManager fragmentManager = ((Activity) context).getFragmentManager();
-                    fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout,new SetCoinCountFragment(),"fragment_setcoincount").commit();
+                    fragmentManager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).replace(R.id.remittance_framelayout, setCoinCountFragment, "fragment_setcoincount").commit();
                 } else {
                     Intent intent = new Intent(context, LogActivity.class);
                     intent.putExtra("address",wallet.getCrossAddress());

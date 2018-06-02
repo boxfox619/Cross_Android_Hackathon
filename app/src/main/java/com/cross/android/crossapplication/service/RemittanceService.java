@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 
 public interface RemittanceService {
 
-    @POST("wallet/:symbol/send")
+    @POST("wallet/{symbol}/send")
     Call<TransactionResult> send(@Path("symbol") String symbol,
                                  @Body String walletFileName,
                                  @Body String walletJsonFile,
