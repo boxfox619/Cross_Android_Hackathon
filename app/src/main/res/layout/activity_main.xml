@@ -40,6 +40,7 @@
             </android.support.design.widget.AppBarLayout>
 
             <TextView
+                android:id="@+id/main_address_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -58,6 +59,7 @@
 
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="bottom"
@@ -67,6 +69,7 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/main_krbalance_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="6sp"
@@ -76,47 +79,9 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/main_linearlayout1"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:visibility="invisible">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="4dp"
-                    android:src="@drawable/ic_trending_up" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom"
-                    android:lineSpacingExtra="2sp"
-                    android:textColor="#707070"
-                    android:textSize="10sp"
-                    tools:text="₩" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="3sp"
-                    android:text="206,478 "
-                    android:textColor="#b144fe"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="3sp"
-                    android:text="(1.45%)"
-                    android:textColor="#b144fe"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+                android:layout_height="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
@@ -37,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout main_drawer_layout;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
+    RelativeLayout main_remittance_linearlayout, main_copy_linearlayout;
     NavigationView navigationView;
+    TextView main_krbalance_textview, main_address_textview;
     Toolbar toolbar;
     boolean flag = true;
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        main_krbalance_textview = findViewById(R.id.main_krbalance_textview);
+        main_address_textview = findViewById(R.id.main_address_textview);
         main_topbox_linearlayout = findViewById(R.id.main_topbox_linearlayout);
         main_drawer_layout = findViewById(R.id.main_drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -58,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
         for(Wallet w : walletResult){
             wallets.add(w);
         }
+
+        main_krbalance_textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
 
         main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         registerAnimation(main_copy_linearlayout);
     }
 
-    private void registerAnimation(final LinearLayout layout){
+    private void registerAnimation(final RelativeLayout layout){
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
