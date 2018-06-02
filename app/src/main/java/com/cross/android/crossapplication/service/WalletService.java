@@ -9,6 +9,8 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -19,8 +21,9 @@ public interface WalletService {
     @GET("support/wallet/list")
     Call<List<Coin>> getSupportedCoins();
 
-    @POST("wallet/:symbol/create")
-    Call<WalletFile> createWallet(@Body String symbol, @Body String name, @Body String description, @Body String password, @Body boolean major);
+    @FormUrlEncoded
+    @POST("wallet/{symbol}/create")
+    Call<WalletFile> createWallet(@Path("symbol") String symbol, @Field("name") String name,@Field("description")  String description, @Field("password")  String password, @Field("major")boolean major);
 
     @GET("wallet/list")
     Call<List<Wallet>> getWalletList();

@@ -73,7 +73,6 @@
                         android:layout_marginLeft="5dp"
                         android:background="@android:color/transparent"
                         android:inputType="number"
-                        android:text="32.019474"
                         android:textColor="#b144fe"
                         android:textSize="35sp" />
                 </LinearLayout>

@@ -32,7 +32,6 @@
         android:textSize="25sp"
         android:textColor="#555555"
         android:lineSpacingExtra="5sp"
-        android:text="Cross-6817"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/sendbycross_tetview1"
