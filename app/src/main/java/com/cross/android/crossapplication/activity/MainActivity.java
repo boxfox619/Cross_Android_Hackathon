@@ -16,8 +16,10 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cross.android.crossapplication.R;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout main_drawer_layout;
     RecyclerView main_coin_recyclerview;
     CoinRecyclerAdapter coinRecyclerAdapter;
-    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
+    RelativeLayout main_remittance_linearlayout, main_copy_linearlayout;
     NavigationView navigationView;
     Toolbar toolbar;
     boolean flag = true;
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         registerAnimation(main_copy_linearlayout);
     }
 
-    private void registerAnimation(final LinearLayout layout){
+    private void registerAnimation(final ViewGroup layout){
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
