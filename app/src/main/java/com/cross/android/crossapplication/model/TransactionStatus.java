@@ -6,42 +6,14 @@ public class TransactionStatus {
   private String transactionHash;
   private String sourceAddress;
   private String targetAddress;
+  private boolean venefit;
   private boolean status;
   private double amount;
-  private BigInteger blockNumber;
-  private BigInteger confirmation;
-  private String email;
+  private Wallet targetWallet;
+  private User targetProfile;
   private String date;
-
-  public TransactionStatus(String transactionHash, boolean status, double amount, BigInteger blockNumber, BigInteger confirmation, String email, String date) {
-    this.transactionHash = transactionHash;
-    this.status = status;
-    this.amount = amount;
-    this.blockNumber = blockNumber;
-    this.confirmation = confirmation;
-    this.email = email;
-    this.date = date;
-  }
-
-  public boolean isStatus() {
-    return status;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
+  private BigInteger blockNumber;
+  private int confirmation;
 
   public String getTransactionHash() {
     return transactionHash;
@@ -83,11 +55,11 @@ public class TransactionStatus {
     this.blockNumber = blockNumber;
   }
 
-  public BigInteger getConfirmation() {
+  public int getConfirmation() {
     return confirmation;
   }
 
-  public void setConfirmation(BigInteger confirmation) {
+  public void setConfirmation(int confirmation) {
     this.confirmation = confirmation;
   }
 
@@ -97,5 +69,38 @@ public class TransactionStatus {
 
   public boolean getStatus() {
     return status;
+  }
+
+  public boolean isVenefit() {
+    return venefit;
+  }
+
+  public void setVenefit(boolean venefit) {
+    this.venefit = venefit;
+  }
+
+
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public Wallet getTargetWallet() {
+    return targetWallet;
+  }
+
+  public void setTargetWallet(Wallet targetWallet) {
+    this.targetWallet = targetWallet;
+  }
+
+  public User getTargetProfile() {
+    return targetProfile;
+  }
+
+  public void setTargetProfile(User targetProfile) {
+    this.targetProfile = targetProfile;
   }
 }

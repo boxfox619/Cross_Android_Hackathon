@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         for(Wallet w : walletResult){
             wallets.add(w);
         }
-
         coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
 
         main_remittance_linearlayout.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +119,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         initViews();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        List<Wallet> wallets = new ArrayList<>();
+        RealmResults<Wallet> walletResult = Realm.getDefaultInstance().where(Wallet.class).findAll();
+        for(Wallet w : walletResult){
+            wallets.add(w);
+        }
+        coinRecyclerAdapter = new CoinRecyclerAdapter(MainActivity.this, wallets);
+        main_coin_recyclerview.setAdapter(coinRecyclerAdapter);
     }
 
     @Override

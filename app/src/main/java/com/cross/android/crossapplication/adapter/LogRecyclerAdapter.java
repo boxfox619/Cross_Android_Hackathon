@@ -38,16 +38,11 @@ public class LogRecyclerAdapter extends RecyclerView.Adapter<LogRecyclerAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.log_date_textview.setText(transactionStatuses.get(position).getDate());
-        holder.log_email_textview.setText(transactionStatuses.get(position).getEmail());
+        holder.log_email_textview.setText((transactionStatuses.get(position).getTargetProfile()==null)?"Not Cross user": transactionStatuses.get(position).getTargetProfile().getEmail());
         holder.log_hash_textview.setText(transactionStatuses.get(position).getTransactionHash());
-        if (transactionStatuses.get(position).getStatus() == true) {
-            holder.log_success_imageview.setBackground(context.getDrawable(R.drawable.ic_success));
-            holder.log_success_textview.setText("Success");
-        } else {
-            holder.log_success_imageview.setBackground(context.getDrawable(R.drawable.ic_red_circle));
-            holder.log_success_textview.setText("Fail");
-        }
-        if (transactionStatuses.get(position).getBlockNumber().intValue() < 0) {
+        holder.log_success_imageview.setBackground(context.getDrawable(R.drawable.ic_success));
+        holder.log_success_textview.setText("Success");
+        if (!transactionStatuses.get(position).isVenefit()) {
             holder.log_amount_textview.setText(String.valueOf("-" + transactionStatuses.get(position).getAmount() + "ETH"));
             holder.log_amount_textview.setTextColor(context.getColor(R.color.colorRed));
         } else {
@@ -55,7 +50,6 @@ public class LogRecyclerAdapter extends RecyclerView.Adapter<LogRecyclerAdapter.
             holder.log_amount_textview.setTextColor(context.getColor(R.color.colorGreen));
         }
 
-        holder.log_confirmation_textview.setText("Confirmed" + String.valueOf(transactionStatuses.get(position).getConfirmation()));
 
     }
 

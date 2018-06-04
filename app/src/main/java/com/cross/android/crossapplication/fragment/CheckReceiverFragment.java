@@ -41,19 +41,15 @@ public class CheckReceiverFragment extends Fragment {
             @Override
             public void onResponse(Call<Wallet> call, Response<Wallet> response) {
                 if(response.isSuccessful()){
-                    Wallet wallet = response.body();
-                    checkreceiver_description_textview.setText("즐거운 코딩");
-                    checkreceiver_email_textview.setText(wallet.getOwner());
-                    checkreceiver_name_textview.setText(wallet.getOwnerName());
-                    checkreceiver_coinaddress_textview.setText(wallet.getOriginalAddress());
+
                 }else{
-                    Log.d("DEBUG",String.valueOf(response.code()));
+                    Log.e("test", "asd");
                 }
             }
 
             @Override
             public void onFailure(Call<Wallet> call, Throwable t) {
-                Log.d("DEBUG",t.toString());
+                t.printStackTrace();
             }
         });
 

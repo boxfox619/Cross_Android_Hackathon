@@ -2,6 +2,8 @@ package com.cross.android.crossapplication.fragment;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -12,9 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.cross.android.crossapplication.R;
+import com.cross.android.crossapplication.model.Wallet;
 import com.cross.android.crossapplication.model.WalletFile;
 import com.cross.android.crossapplication.service.WalletService;
 import com.cross.android.crossapplication.util.RetrofitUtil;
+
+import java.util.List;
 
 import io.realm.Realm;
 import retrofit2.Call;
@@ -39,30 +44,57 @@ public class RegisterWalletFragment extends Fragment {
         registerwallet_pw_edittext = view.findViewById(R.id.registerwallet_pw_edittext);
         registerwallet_walletname_edittext = view.findViewById(R.id.registerwallet_walletname_edittext);
         fragmentManager = getFragmentManager();
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("지갑을 생성중입니다");
         registerwallet_addwallet_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 RetrofitUtil.create(getActivity()).create(WalletService.class).createWallet("eth", registerwallet_walletname_edittext.getText().toString(), registerwallet_description_edittext.getText().toString(), registerwallet_pw_edittext.getText().toString(), false).enqueue(new Callback<WalletFile>() {
                     @Override
                     public void onResponse(Call<WalletFile> call, Response<WalletFile> response) {
-                        if (response.isSuccessful()) {
-                            WalletFile walletFile = response.body();
-                            Realm realm = Realm.getDefaultInstance();
-                            realm.beginTransaction();
-                            realm.copyToRealm(walletFile);
-                            realm.commitTransaction();
-                            bundle.putString("address", walletFile.getAddress());
-                            bundle.putString("name", walletFile.getName());
-                            completeWalletFragment.setArguments(bundle);
-                            fragmentManager.beginTransaction().replace(R.id.createwallet_framelayout,completeWalletFragment,"completewalletfragment").commit();
-                        }else{
-                            Log.d("DEBUG", String.valueOf(response.code()));
-                        }
+                        RetrofitUtil.create(getContext()).create(WalletService.class).getWalletList().enqueue(new Callback<List<Wallet>>() {
+                            @Override
+                            public void onResponse(Call<List<Wallet>> call, Response<List<Wallet>> response) {
+                                if(response.isSuccessful()){
+                                    List<Wallet> list = response.body();
+                                    Realm realm = Realm.getDefaultInstance();
+                                    realm.beginTransaction();
+                                    realm.where(Wallet.class).findAll().deleteAllFromRealm();
+                                    realm.copyToRealm(list);
+                                    realm.commitTransaction();
+                                    getActivity().finish();
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<List<Wallet>> call, Throwable t) {
+                                t.printStackTrace();
+                                getActivity().finish();
+                            }
+                        });
                     }
 
                     @Override
                     public void onFailure(Call<WalletFile> call, Throwable t) {
-                        Log.d("DEBUG", t.toString());
+                        RetrofitUtil.create(getContext()).create(WalletService.class).getWalletList().enqueue(new Callback<List<Wallet>>() {
+                            @Override
+                            public void onResponse(Call<List<Wallet>> call, Response<List<Wallet>> response) {
+                                if(response.isSuccessful()){
+                                    List<Wallet> list = response.body();
+                                    Realm realm = Realm.getDefaultInstance();
+                                    realm.beginTransaction();
+                                    realm.where(Wallet.class).findAll().deleteAllFromRealm();
+                                    realm.copyToRealm(list);
+                                    realm.commitTransaction();
+                                    getActivity().finish();
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<List<Wallet>> call, Throwable t) {
+                                t.printStackTrace();
+                                getActivity().finish();
+                            }
+                        });
                     }
                 });
 

@@ -1,13 +1,11 @@
 package com.cross.android.crossapplication.model;
 
-import com.google.gson.JsonObject;
-
 import io.realm.RealmObject;
 
-public class WalletFile extends RealmObject {
+public class WalletFile extends RealmObject{
     private String address;
     private String name;
-    private JsonObject wallet;
+    private String wallet;
 
     public WalletFile(){
 
@@ -29,11 +27,11 @@ public class WalletFile extends RealmObject {
         this.name = name;
     }
 
-    public JsonObject getWallet() {
+    public String getWallet() {
         return wallet;
     }
 
-    public void setWallet(JsonObject wallet) {
+    public void setWallet(String wallet) {
         this.wallet = wallet;
     }
 }

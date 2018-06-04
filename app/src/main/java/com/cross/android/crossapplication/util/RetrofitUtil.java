@@ -6,6 +6,7 @@ import com.cross.android.crossapplication.R;
 import com.cross.android.crossapplication.model.User;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import io.realm.Realm;
 import okhttp3.Interceptor;
@@ -18,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitUtil {
     public static Retrofit create(Context ctx){
 
-        OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).addInterceptor(new Interceptor() {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 Request originalRequest = chain.request();

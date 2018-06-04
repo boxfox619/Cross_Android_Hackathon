@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
-        android:text="차세대 간편 송금 서비스"
+        android:text="암호화폐 통합 지갑 서비스"
         android:textColor="#88555555"
         android:textSize="20dp" />
 

@@ -1,8 +1,10 @@
 package com.cross.android.crossapplication.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
@@ -45,8 +47,6 @@ public class LogActivity extends AppCompatActivity {
     ArrayList<TransactionStatus> transactionStatuses;
     LogRecyclerAdapter logRecyclerAdapter;
     NavigationView navigationView;
-    LinearLayout main_remittance_linearlayout, main_copy_linearlayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +56,15 @@ public class LogActivity extends AppCompatActivity {
         logRecyclerAdapter = new LogRecyclerAdapter(LogActivity.this, transactionStatuses);
         log_coin_recyclerview = findViewById(R.id.log_coin_recyclerview);
         log_drawer_layout = findViewById(R.id.log_drawer_layout);
-        main_copy_linearlayout = findViewById(R.id.main_copy_linearlayout);
-        main_remittance_linearlayout = findViewById(R.id.main_remittance_linearlayout);
         String address = getIntent().getStringExtra("address");
         Realm realm = Realm.getDefaultInstance();
         Wallet wallet = realm.where(Wallet.class).equalTo("crossAddress",address).findFirst();
+        ((TextView)findViewById(R.id.log_name_imageview)).setText(wallet.getName());
+        ((TextView)findViewById(R.id.tv_balance)).setText(wallet.getBalance());
+        ((TextView)findViewById(R.id.tv_address)).setText(wallet.getOriginalAddress());
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setMessage("기록을 가져오는중입니다");
+        dialog.show();
         RetrofitUtil.create(this).create(WalletService.class).transactionList(wallet.getSymbol(), wallet.getOriginalAddress()).enqueue(new Callback<List<TransactionStatus>>() {
             @Override
             public void onResponse(Call<List<TransactionStatus>> call, Response<List<TransactionStatus>> response) {
@@ -68,11 +72,13 @@ public class LogActivity extends AppCompatActivity {
                 for(TransactionStatus status : statuses){
                     transactionStatuses.add(status);
                 }
+                logRecyclerAdapter.notifyDataSetChanged();
+                dialog.hide();
             }
 
             @Override
             public void onFailure(Call<List<TransactionStatus>> call, Throwable t) {
-
+                dialog.hide();
             }
         });
 
@@ -108,37 +114,5 @@ public class LogActivity extends AppCompatActivity {
         User user = realm.where(User.class).findFirst();
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_name)).setText(user.getName());
         ((TextView)navigationView.getHeaderView(0).findViewById(R.id.tv_email)).setText(user.getEmail());
-        registerAnimation(main_remittance_linearlayout);
-        registerAnimation(main_copy_linearlayout);
-    }
-
-    private void registerAnimation(final LinearLayout layout){
-        layout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    for (int i = 0; i < layout.getChildCount(); i++) {
-                        View view = layout.getChildAt(i);
-                        if (view instanceof TextView) {
-                            ((TextView) view).setTextColor(Color.parseColor("#FFFFFF"));
-                        } else if (view instanceof ImageView) {
-                            ((ImageView) view).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
-                        }
-                    }
-                    layout.setBackground(getDrawable(R.drawable.main_button_pressed_bg));
-                }else if(event.getAction() == MotionEvent.ACTION_UP){
-                    for (int i = 0; i < layout.getChildCount(); i++) {
-                        View view = layout.getChildAt(i);
-                        if (view instanceof TextView) {
-                            ((TextView) view).setTextColor(Color.parseColor("#A283F3"));
-                        } else if (view instanceof ImageView) {
-                            ((ImageView) view).clearColorFilter();
-                        }
-                    }
-                    layout.setBackground(getDrawable(R.drawable.main_button_bg));
-                }
-                return false;
-            }
-        });
     }
 }
